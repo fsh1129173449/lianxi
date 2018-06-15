@@ -1,0 +1,27 @@
+//时间格式转化
+string 转date
+DateFormat fmt =new SimpleDateFormat("yyyy-MM-dd");
+			Date date = fmt.parse(getPaperCardInfoRes
+					.getAssociateDeadTime());
+			Calendar ca = Calendar.getInstance();
+			ca.setTime(date);
+			int month = ca.get(Calendar.MONTH);
+int month = ca.get(Calendar.MONTH)+1;
+			int year = ca.get(Calendar.YEAR);
+			int day = ca.get(Calendar.DAY_OF_MONTH);
+
+
+Date start_time = null;
+		Date ent_time = null;
+		Date nowTime = new Date();
+		start_time = nowTime;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String lastDayOfMonth = sdf.format(nowTime.getTime());
+		StringBuffer endStrb = new StringBuffer().append(lastDayOfMonth)
+				.append(" 23:59:59");
+		StringBuffer startStrb = new StringBuffer().append(lastDayOfMonth)
+				.append(" 00:00:00");
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date date1 = df.parse(startStrb.toString());
+		Date date0 = df.parse(endStrb.toString());
+		start_time = date1;
